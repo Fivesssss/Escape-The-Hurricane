@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7782337793883899137}
   - component: {fileID: 4962704958833427542}
   - component: {fileID: 939884865845999232}
-  - component: {fileID: 8621289312216501531}
+  - component: {fileID: 1151249900899094636}
   m_Layer: 0
   m_Name: Storm
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.3617, y: 5.6, z: 0}
-  m_LocalScale: {x: 5.5, y: 2.9, z: 1}
+  m_LocalScale: {x: 5, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: -1197880281, guid: b81ceb1f14d15474fa58e9653ccd5552, type: 3}
+  m_SortingOrder: 8
+  m_Sprite: {fileID: -661060586, guid: 62e12eebaa49747419cfbeb19eeffd1d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -149,8 +149,8 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!61 &8621289312216501531
-BoxCollider2D:
+--- !u!58 &1151249900899094636
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -181,16 +181,6 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.004921913, y: 2.8310275}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8, y: 8}
-    newSize: {x: 8, y: 8}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: -0.04998169, y: -0.30124164}
   serializedVersion: 2
-  m_Size: {x: 8.009844, y: 2.337945}
-  m_EdgeRadius: 0
+  m_Radius: 1.3555323

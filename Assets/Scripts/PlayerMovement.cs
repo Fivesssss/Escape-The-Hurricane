@@ -9,22 +9,55 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private Transform playerT;
     private Vector2 movement;
     [SerializeField] private float speed = 5f;
+    [SerializeField] private float speedY = -5f;
+    [SerializeField] private float distanceInterval = 20f;
+    private float lastDistance;
+    [SerializeField] private float multiplier = 1.05f;
+    private float distanceMoved = 0f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb =  GetComponent<Rigidbody2D>();
         playerT = GetComponent<Transform>();
+        lastDistance = rb.position.y;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        float distance = lastDistance - rb.position.y;
+        distanceMoved += distance;
         float x = Input.GetAxisRaw("Horizontal");
-        movement.x = x * speed;
-        movement.y = -5;
+        
+        //speed multiplier  
+        if (distanceMoved >= distanceInterval)
+        {
+            speedY = speedY * multiplier;
+            speed = speed * multiplier;
+            movement.x = x * speed;
+            movement.y = speedY;
+            distanceMoved = 0f;
+        }
+        else 
+        {
+            movement.y = speedY;
+            movement.x = x * speed;
+        }
 
+        //restrict player movement to wihtin the camera
+        if (transform.position.x >= 19.70f && movement.x > 0)
+        {
+            movement.x = 0;
+        }
+        else if (transform.position.x <= -19.70f && movement.x < 0) 
+        {
+            movement.x = 0;
+        }
+
+        //update the velocity
         rb.velocity = movement;
+        lastDistance = rb.position.y;
     }
 
     public void collisionWithObstacle()

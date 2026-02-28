@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -14,12 +14,15 @@ public class PlayerMovement : MonoBehaviour
     private float lastDistance;
     [SerializeField] private float multiplier = 1.05f;
     private float distanceMoved = 0f;
+    [SerializeField] private Slider progressSlider;
+    [SerializeField] private float levelLength = 100f;
 
     // Start is called before the first frame update
     void Start()
     {
         rb =  GetComponent<Rigidbody2D>();
         playerT = GetComponent<Transform>();
+        progressSlider.value = 0f;
         lastDistance = rb.position.y;
     }
 
@@ -58,6 +61,9 @@ public class PlayerMovement : MonoBehaviour
         //update the velocity
         rb.velocity = movement;
         lastDistance = rb.position.y;
+
+        //update progress slider
+        progressSlider.value = -(rb.position.y) / levelLength;
     }
 
     public void collisionWithObstacle()

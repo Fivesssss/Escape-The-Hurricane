@@ -5,14 +5,24 @@ using UnityEngine;
 
 public class MainMenuButtons : MonoBehaviour
 {
-    public void tutorial() 
+    public void controls() 
     {
-        SceneManager.LoadScene("Tutorial");
+        SceneManager.LoadScene("Controls");
+    }
+
+    public void tips() 
+    {
+        SceneManager.LoadScene("Tips");
     }
 
     public void play() 
     {
         SceneManager.LoadScene("DifficultyLevelSelect");    
+    }
+
+    public void menu() 
+    {
+        SceneManager.LoadScene("StartScreen");
     }
 
     public void quit() 
@@ -26,5 +36,20 @@ public class MainMenuButtons : MonoBehaviour
         #else
                 Application.Quit();
         #endif
+    }
+
+    public void easy() 
+    {
+        SceneManager.LoadScene("Easy");
+    }
+
+    public void medium()
+    {
+        SceneManager.LoadScene("Medium");
+    }
+
+    public void hard()
+    {
+        SceneManager.LoadScene("Hard");
     }
 }

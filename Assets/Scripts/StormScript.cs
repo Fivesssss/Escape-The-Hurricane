@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class StormScript : MonoBehaviour
 {
@@ -19,12 +21,14 @@ public class StormScript : MonoBehaviour
 
     public void FixedUpdate()
     {
-        distanceMoved = lastDistance - rb.position.y;
+        float distance = lastDistance - rb.position.y;
+        distanceMoved += distance;
 
         if (distanceMoved >= distanceInterval)
         {
             stormSpeedY = stormSpeedY * multiplier;
             rb.velocity = new Vector2(0, stormSpeedY);
+            distanceMoved = 0f;
         }
         else
         {
@@ -35,8 +39,8 @@ public class StormScript : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player") { 
-            Destroy(collision.gameObject);
+        if (collision.gameObject.tag == "Player") {
+            SceneManager.LoadScene("GameOver");
         }
     }
 }

@@ -1,0 +1,6 @@
+# Ignore TextMesh Pro and general shader folders from language statistics
+Assets/TextMesh\ Pro/** linguist-generated
+# Or if you want to ignore all .shader / ShaderLab files from stats:
+**.shader linguist-generated
+**.cginc linguist-generated
+**.hlsl linguist-generated
